@@ -37,6 +37,13 @@ def get_all_todos(first_n: int = None):
     else:
         return all_todos[:first_n]
 
+
+# Generally, to access POST, you need a front end
+# Either Swagger UI, PostMan, Curl
+# but FASTAPI provides a built-in Swagger UI to test your endpoints
+# You can access it at http://localhost:9999/docs
+
+# POST method to create a new todo
 @api.post('/todos')
 def create_todo(todo: dict):
     new_todo_id = max(todo['todo_id'] for todo in all_todos) + 1 
@@ -48,7 +55,21 @@ def create_todo(todo: dict):
     }
 
     all_todos.append(new_todo)
+
     return new_todo
+
+# PUT method to update an existing todo
+@api.put('/todos/{todo_id}')
+def update_todo(todo_id: int, updated_todo: dict):
+    for todo in all_todos:
+        if todo['todo_id'] == todo_id:
+            todo['todo_name'] = updated_todo.get('todo_name', todo['todo_name'])
+            todo['todo_description'] = updated_todo.get('todo_description', todo['todo_description'])
+            return todo
+    return {"error": "Todo not found"}, 404
+
+# DELETE method to remove a todo
+
 
   
 
