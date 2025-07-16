@@ -1,8 +1,44 @@
+# FastAPI is a modern, fast (high-performance), web framework for building APIs with Python 3.6+ based on standard Python type hints.
+# It is built on top of Starlette for the web parts and Pydantic for the data parts.
+# Uvicorn is a lightning-fast ASGI server implementation, using `uvloop` and `httptools`.
+# Scarlet is a web framework that allows you to build APIs with FastAPI and run them on the Scarlet platform.
+# Scarlet is a platform that allows you to deploy and run FastAPI applications easily.
+# Pydantic is a data validation and settings management library for Python, which uses Python type annotations.
+
+# This code demonstrates how to create a simple FastAPI application with CRUD operations for a todo list.
+
+# To run this FastAPI application, you need to install the required packages:
+# pip install fastapi uvicorn scarlet
+# To run the FastAPI application, you can use the command:
+# uvicorn main:api --port 9999  
+
+from enum import IntEnum
+from typing import Optional, List
+
 from fastapi import FastAPI
+from pydantic import BaseModel, Field
+
 
 # Fastapi runs on Scarlet, so by default all methods would be asynchronous, but you can still decide which endpoints make sense to be async-await and synchronous
-
 api = FastAPI()
+
+class Priority(IntEnum):
+    LOW = 3
+    MEDIUM = 2
+    HIGH = 1
+
+# TodoBase inherits from BaseModel, which is a Pydantic model that allows you to define the structure of your data
+
+# This is the base model, we will be using this to create models for each endpoint.
+# That's why we did not include the todo_id here, because it is not required for the base model.
+class TodoBase(BaseModel):
+    # The description is also important. This is not just some documenation, but it is enforced, 
+    # When something inherits from TodoBase, then it has to fit this requirement. 
+    todo_name: str = Field(..., description="The name of the todo item", min_length = 3, max_length = 512)
+    priority: Priority = Field(default=Priority.LOW, description="The priority of the todo item, can be LOW, MEDIUM, or HIGH")
+
+
+
 
 all_todos = [
     {'todo_id': 1, 'todo_name': 'Buy groceries', 'todo_description': 'Milk, Bread, Eggs'},
