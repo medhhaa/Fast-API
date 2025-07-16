@@ -21,6 +21,7 @@ all_todos = [
 def index():
     return {"message": "Hello, World!"}
 
+# Path parameter
 @api.get('/todos/{todo_id}')
 def get_todo(todo_id: int):
     for todo in all_todos:
@@ -28,8 +29,9 @@ def get_todo(todo_id: int):
             return todo
     return {"error": "Todo not found"}, 404
 
+# Query parameter: localhost:9999/todos?first_n=2
 @api.get('/todos')
-def get_all_todos(first_n = None):
+def get_all_todos(first_n: int = None):
     if first_n is None:
         return all_todos
     else:
