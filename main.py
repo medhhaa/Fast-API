@@ -69,7 +69,13 @@ def update_todo(todo_id: int, updated_todo: dict):
     return {"error": "Todo not found"}, 404
 
 # DELETE method to remove a todo
+@api.delete('/todos/{todo_id}')
+def delete_todo(todo_id: int):
+    global all_todos
+    all_todos = [todo for todo in all_todos if todo['todo_id'] != todo_id]
+    return {"message": "Todo deleted successfully"}
 
+# Run FastAPI with uvicorn
 
   
 
