@@ -4,7 +4,7 @@ from fastapi import FastAPI
 
 api = FastAPI()
 
-todos[] = [
+all_todos = [
     {'todo_id': 1, 'todo_name': 'Buy groceries', 'todo_description': 'Milk, Bread, Eggs'},
     {'todo_id': 2, 'todo_name': 'Walk the dog', 'todo_description': 'Take the dog for a walk in the park'},
     {'todo_id': 3, 'todo_name': 'Read a book', 'todo_description': 'Finish reading "The Great Gatsby"'},
@@ -21,7 +21,20 @@ todos[] = [
 def index():
     return {"message": "Hello, World!"}
 
-@api.get('/calculation')
-def calculation():
+@api.get('/todos/{todo_id}')
+def get_todo(todo_id: int):
+    for todo in all_todos:
+        if todo['todo_id'] == todo_id:
+            return todo
+    return {"error": "Todo not found"}, 404
+
+@api.get('/todos')
+def get_all_todos(first_n = None):
+    if first_n is None:
+        return all_todos
+    else:
+        return all_todos[:first_n]
+
+  
 
 
