@@ -71,10 +71,13 @@ def update_todo(todo_id: int, updated_todo: dict):
 # DELETE method to remove a todo
 @api.delete('/todos/{todo_id}')
 def delete_todo(todo_id: int):
-    global all_todos
-    all_todos = [todo for todo in all_todos if todo['todo_id'] != todo_id]
-    return {"message": "Todo deleted successfully"}
-
+    for index, todo in enumerate(all_todos):
+        if todo['todo_id'] == todo_id:
+            deleted_todo = all_todos.pop(index)
+            return {"message": "Todo deleted successfully"}
+    # If the todo_id is not found, return an error message
+    return "Error, not found"
+   
 # Run FastAPI with uvicorn
 
   
