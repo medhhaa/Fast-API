@@ -54,9 +54,9 @@ Through building this application, I gained comprehensive knowledge of:
 - **HTTP Methods**: Implemented all major HTTP methods (GET, POST, PUT, DELETE) with proper use cases
 - **Response Models**: Understanding how to define what data structure each endpoint returns
 
-### Pydantic Models Mastery
+### Pydantic 
 
-Pydantic proved to be incredibly powerful for data validation:
+Pydantic helps in data validation:
 
 - **BaseModel Inheritance**: Created a hierarchy of models (`TodoBase` → `TodoCreate`, `Todo`, `TodoUpdate`) that promotes code reusability
 - **Field Validation**: Implemented sophisticated validation rules including:
