@@ -1,4 +1,4 @@
-# App End Points using FAST API
+# FAST API Todo App
 
 A simple yet comprehensive Todo list API built with FastAPI that demonstrates CRUD operations, data validation, and modern Python web development practices.
 
