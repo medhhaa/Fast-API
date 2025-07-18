@@ -37,7 +37,6 @@ A simple yet comprehensive Todo list API built with FastAPI that demonstrates CR
    - **API Base URL**: `http://localhost:9999`
    - **Swagger UI**: `http://localhost:9999/docs`
 
-## Screenshot
 
 ### Swagger UI Interface
 
