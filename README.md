@@ -1,8 +1,8 @@
-# FastAPI Todo App End Points
+# App End Points using FAST API
 
 A simple yet comprehensive Todo list API built with FastAPI that demonstrates CRUD operations, data validation, and modern Python web development practices.
 
-## 🚀 Features
+## Features
 
 - **Complete CRUD Operations**: Create, Read, Update, and Delete todo items
 - **Data Validation**: Robust input validation using Pydantic models
@@ -11,7 +11,7 @@ A simple yet comprehensive Todo list API built with FastAPI that demonstrates CR
 - **Type Safety**: Full type hints throughout the application
 - **Error Handling**: Proper HTTP exception handling
 
-## 📋 API Endpoints
+## API Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -21,7 +21,7 @@ A simple yet comprehensive Todo list API built with FastAPI that demonstrates CR
 | PUT | `/todos/{todo_id}` | Update an existing todo |
 | DELETE | `/todos/{todo_id}` | Delete a todo |
 
-## 🛠️ Installation & Setup
+## Installation & Setup
 
 1. **Install required packages:**
    ```bash
@@ -37,13 +37,13 @@ A simple yet comprehensive Todo list API built with FastAPI that demonstrates CR
    - **API Base URL**: `http://localhost:9999`
    - **Swagger UI**: `http://localhost:9999/docs`
 
-## 📸 Screenshot
+## Screenshot
 
 ### Swagger UI Interface
 
 ![Swagger UI](screenshots/image.png)
 
-## 🎯 Learning Outcomes
+## Learning Outcomes
 
 ### FastAPI Framework Understanding
 
@@ -74,7 +74,7 @@ Pydantic proved to be incredibly powerful for data validation:
 - **Optional Parameters**: Implemented optional query parameters for flexible data retrieval
 - **Partial Updates**: The PUT endpoint allows partial updates using optional fields
 
-## 📚 Key Takeaways
+## Key Takeaways
 
 This project provided hands-on experience with:
 - Modern Python web development using FastAPI
