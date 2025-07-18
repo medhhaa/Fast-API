@@ -41,7 +41,7 @@ A simple yet comprehensive Todo list API built with FastAPI that demonstrates CR
 
 ### Swagger UI Interface
 
-![Swagger UI](screenshots/image.png)
+![Swagger UI](screenshot/image.png)
 
 ## Learning Outcomes
 
